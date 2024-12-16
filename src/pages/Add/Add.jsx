@@ -31,13 +31,12 @@ const Add = () => {
         formData.append("image", image);  // Send image file
 
         try {
-            // Make the POST request to the backend
             const response = await axios.post(`${url}/api/food/add`, formData, {
                 headers: {
-                    "Content-Type": "multipart/form-data", // Important for file upload
-                }
+                    "Content-Type": "multipart/form-data",
+                },
             });
-
+            
             if (response.data.success) {
                 toast.success(response.data.message);
                 setData({
